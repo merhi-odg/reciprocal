@@ -8,6 +8,12 @@ def begin():
 
 # modelop.score
 def action(data):
+    """
+    param: data: dict of he form {"input": x} for some number x
+    """
+    
+    num = data["input"]
+    
     yield {
-        "reciprocal": 1/data
+        "reciprocal": 1/num
     }
