@@ -1,9 +1,13 @@
-# modelop.slot.0: in-use
+# modelop.schema.0: input_schema.avsc
 # modelop.slot.1: in-use
 
 
 # modelop.init
-def begin():
+def begin(model_def):
+    
+    print("\nModel Definition: \n", flush=True)
+    print(model_def, flush=True)
+    
     pass
 
 # modelop.score
