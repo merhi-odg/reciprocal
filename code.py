@@ -4,6 +4,10 @@
 
 # modelop.init
 def begin():
+    
+    print("\nErroring out init on purpose. Model should not get deployed!\n", flush=True)
+    print(1/0)
+    
     pass
 
 # modelop.score
