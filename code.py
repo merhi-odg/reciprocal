@@ -5,6 +5,8 @@
 # modelop.init
 def begin(model_def):
     
+    global model_definition
+    
     print("\nModel Definition keys: \n", flush=True)
     print(model_def.keys(), flush=True)
     
@@ -13,6 +15,8 @@ def begin(model_def):
     
     elif 'deployedModel' in model_def.keys():
         print(model_def['deployedModel'], flush=True)
+    
+    model_definition = model_def
     
     pass
 
@@ -34,5 +38,5 @@ def action(data):
     
     print("output: ", out, flush=True)
 
-
-    yield out
+    yield model_definition
+    # yield out
