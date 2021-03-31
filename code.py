@@ -5,8 +5,14 @@
 # modelop.init
 def begin(model_def):
     
-    print("\nModel Definition: \n", flush=True)
-    print(model_def, flush=True)
+    print("\nModel Definition keys: \n", flush=True)
+    print(model_def.keys(), flush=True)
+    
+    if 'job' in model_def.keys():
+        print(model_def['job'], flush=True)
+    
+    elif 'deployedModel' in model_def.keys():
+        print(model_def['deployedModel'], flush=True)
     
     pass
 
