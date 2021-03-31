@@ -2,8 +2,14 @@
 # modelop.slot.1: in-use
 
 
+import time
+
 # modelop.init
 def begin():
+    
+    print("\nWaiting 15s before erroring out init function\n", flush=True)
+    
+    time.sleep(15)
     
     print("\nErroring out init on purpose. Model should not get deployed!\n", flush=True)
     print(1/0)
