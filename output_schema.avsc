@@ -1,9 +1,9 @@
 {
   "type": "record",
-  "name": "input_schema",
+  "name": "output_schema",
   "fields": [
     {
-      "name": "input",
+      "name": "reciprocal",
       "type": "double"
     }
   ]

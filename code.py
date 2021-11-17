@@ -1,28 +1,33 @@
 # modelop.schema.0: input_schema.avsc
-# modelop.slot.1: in-use
+# modelop.schema.1: output_schema.avsc
+
+import logging
+import warnings
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(level="INFO")
 
 
 # modelop.init
-def begin():
+def begin() -> None:
     pass
 
 
 # modelop.score
-def action(data):
+def action(data: float) -> dict:
     """
-    param: data: dict of he form {"input": x} for some number x
+    param: data: dict of the form {"input": x} for some number x
     """
     
-    print("action input: ", data, flush=True)
+    logger.info("Input to action(): %s", data)
+
+    if not isinstance(data, dict):
+        raise UserWarning("Bad Input: input data should be a dictionary")
+    if not "input" in data:
+        warnings.warn("Key 'input' missing from input data", UserWarning)
+    if data["input"]==0:    
+        raise UserWarning("Bad Input: DivisionByZero Expected!")
     
-    num = data["input"]
-    
-    print("num: ", num, flush=True)
-    
-    out = {
-        "reciprocal": 1/num
-    }
-    
-    print("output: ", out, flush=True)
-    
-    yield out
+    output = {"reciprocal": 1/data["input"]}
+
+    yield output
