@@ -3,6 +3,7 @@
 
 import logging
 import warnings
+warnings.filterwarnings("error", category=UserWarning)
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level="INFO")
@@ -24,7 +25,7 @@ def action(data: float) -> dict:
     if not isinstance(data, dict):
         raise UserWarning("Bad Input: input data should be a dictionary")
     if not "input" in data:
-        warnings.warn("Key 'input' missing from input data", UserWarning)
+        warnings.warn("Key 'input' missing from input data", category=UserWarning)
     if data["input"]==0:    
         raise UserWarning("Bad Input: DivisionByZero Expected!")
     
