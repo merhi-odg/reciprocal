@@ -3,7 +3,9 @@
 
 import logging
 import warnings
-warnings.filterwarnings("error", category=UserWarning)
+
+# Line below is not needed since engine's jet.py set it globally
+# warnings.filterwarnings("error", category=UserWarning) # Coerce UserWarnings into erros
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level="INFO")
