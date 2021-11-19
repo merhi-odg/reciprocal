@@ -73,3 +73,12 @@ In each of the cases above, the job should **complete** (`"jobStatus": "COMPLETE
   "jobStatus" : "COMPLETE",
   "jobResult" : "FAILURE",
 ```
+
+**Roundtrip REST**
+
+* Set up an runtime with a roundtrip REST input endpoint, and set the encoding to **JSON**
+* POST requests to `<MOC_URL>/<engine-name>/api/roundtrip/0/1`
+* Request bodies to try:
+    - `{"input": 1}`: expected output: `{"reciprocal": 1.0}`
+    - `{"input": 0}`: expected output: ```An error has occurred: An output error occurred during model execution, please check the engine logs for details```
+    - `{"inputs": 1}`: expected output: ```An error has occurred: input record rejected by schema```
